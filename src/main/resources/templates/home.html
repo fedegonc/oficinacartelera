@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/layout}">
+<head>
+    <title>La Oficina Cartelera - Carteles</title>
+    <th:block layout:fragment="script">
+        <script th:inline="javascript">
+        /*<![CDATA[*/
+        document.addEventListener('DOMContentLoaded', function () {
+            const banners = /*[[${banners}]]*/ null;
+            const bannerTituloEl = document.getElementById('banner-titulo');
+            const bannerDescripcionEl = document.getElementById('banner-descripcion');
+
+            if (banners && banners.length > 0 && bannerTituloEl && bannerDescripcionEl) {
+                let currentIndex = 0;
+
+                // Apply CSS transition for smooth opacity change
+                bannerTituloEl.style.transition = 'opacity 1s ease-in-out';
+                bannerDescripcionEl.style.transition = 'opacity 1s ease-in-out';
+
+                function updateBannerText() {
+                    // Fade out current text
+                    bannerTituloEl.style.opacity = '0';
+                    bannerDescripcionEl.style.opacity = '0';
+
+                    setTimeout(() => {
+                        // Update text content
+                        bannerTituloEl.textContent = banners[currentIndex].titulo;
+                        bannerDescripcionEl.textContent = banners[currentIndex].descripcion;
+
+                        // Fade in new text
+                        bannerTituloEl.style.opacity = '1';
+                        bannerDescripcionEl.style.opacity = '1';
+
+                        // Move to next banner index for the next call
+                        currentIndex = (currentIndex + 1) % banners.length;
+                    }, 1000); // Delay matches transition time for fade-out to complete
+                }
+
+                // Set initial banner elements to be transparent before JS takes over
+                bannerTituloEl.style.opacity = '0';
+                bannerDescripcionEl.style.opacity = '0';
+                
+                // Display the first banner text using the update function (applies fade-in)
+                updateBannerText();
+
+                // If there are multiple banners, start the slideshow interval
+                if (banners.length > 1) {
+                    setInterval(updateBannerText, 6000); // Interval: 5s display + 1s transition
+                }
+            }
+        });
+        /*]]>*/
+        </script>
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="flex flex-col w-full">
+        <!-- Banner con imagen de fondo -->
+        <div class="w-full bg-cover bg-center h-96" style="background-image: url('/img/imagen1.jpg');">
+            <div class="flex items-center h-full w-full" style="background-color: rgba(25, 40, 85, 0.85);">
+                <div class="text-left px-12 md:px-20 max-w-4xl">
+                    <h1 id="banner-titulo" class="text-4xl font-bold text-white leading-tight slide-up" th:text="${bannerTitulo}">SOLUCIONES VISUALES INTEGRALES</h1>
+<p id="banner-descripcion" class="text-xl text-white mt-4 mb-6 slide-up" th:text="${bannerDescripcion}">Desde letras corpóreas, vinilos impresos y murales hasta demarcaciones de canchas. Transformamos espacios con soluciones visuales creativas y de alto impacto.</p>
+                    <a href="#contacto" class="mt-4 inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">SOLICITA TU PRESUPUESTO</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="container mx-auto mt-14 p-6 md:p-12 bg-white rounded-xl shadow-lg">
+            <h1 class="text-4xl font-extrabold mb-8 text-center text-blue-900">Soluciones que potencian tu negocio</h1>
+            <p class="mb-10 text-lg text-gray-700 text-center max-w-2xl mx-auto">
+                Nos enfocamos en ofrecer servicios de alto impacto para ayudarte a destacar y crecer. Descubre cómo podemos aportar valor real a tu marca o emprendimiento.
+            </p>
+            
+            <!-- Botones de categorías -->
+            <div class="flex flex-wrap justify-center gap-6 mb-12">
+                <button 
+                    class="px-8 py-4 bg-blue-700 text-white font-semibold rounded-xl shadow-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300 text-lg"
+                    hx-get="/publicidad-diseno"
+                    hx-target="#servicios-content"
+                    hx-trigger="click"
+                    hx-swap="innerHTML"
+                    hx-indicator="#loading-indicator">
+                    Publicidad y Diseño
+                </button>
+
+                <button 
+                    class="px-8 py-4 bg-gray-200 text-gray-800 font-semibold rounded-xl shadow-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-all duration-300 text-lg"
+                    hx-get="/creatividad"
+                    hx-target="#servicios-content"
+                    hx-trigger="click"
+                    hx-swap="innerHTML"
+                    hx-indicator="#loading-indicator">
+                    Creatividad
+                </button>
+            </div>
+            
+            <!-- Indicador de carga -->
+            <div id="loading-indicator" class="htmx-indicator flex justify-center my-8">
+                <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-700"></div>
+            </div>
+            
+            <!-- Contenedor para el contenido cargado dinámicamente -->
+            <div id="servicios-content" class="min-h-[300px]">
+                <!-- El contenido se cargará aquí mediante HTMX -->
+                <div class="text-center py-12">
+                    <img src="/img/corporea1.jpg" alt="Letras Corpóreas" class="mx-auto rounded-lg shadow-md max-h-96 object-cover">
+                    <p class="text-xl text-gray-700 mt-4 font-medium">Letras Corpóreas - Nuestro servicio destacado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

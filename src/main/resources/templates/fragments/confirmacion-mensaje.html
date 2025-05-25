@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="confirmacion-mensaje" class="bg-green-50 p-6 rounded-lg border border-green-200">
+        <div class="flex items-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 class="text-xl font-bold text-green-800">¡Mensaje enviado con éxito!</h3>
+        </div>
+        
+        <p class="text-green-700 mb-4">Gracias por tu interés en nuestros servicios. Hemos recibido tu solicitud y nos pondremos en contacto contigo a la brevedad.</p>
+        
+        <div class="flex justify-end">
+            <button 
+                class="px-4 py-2 bg-green-600 text-white font-medium rounded hover:bg-green-700 transition-colors"
+                onclick="this.closest('.bg-green-50').style.display = 'none';">
+                Cerrar
+            </button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="creatividad" class="py-6">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Creatividad</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Servicio 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img th:src="@{/img/corporea1.jpg}" alt="Diseño Gráfico" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-blue-900">Diseño Gráfico</h3>
+                    <p class="text-gray-600 mb-4">Creamos diseños impactantes para tu marca. Logotipos, identidad corporativa, material promocional y más.</p>
+                    <a href="#" class="text-blue-700 font-medium hover:text-blue-900"
+                       hx-get="/servicio/diseno-grafico"
+                       hx-target="#servicios-content"
+                       hx-trigger="click"
+                       hx-swap="innerHTML"
+                       hx-indicator="#loading-indicator">Ver más detalles →</a>
+                </div>
+            </div>
+            
+            <!-- Servicio 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img th:src="@{/img/ilustraciones1.png}" alt="Ilustración" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-blue-900">Ilustración</h3>
+                    <p class="text-gray-600 mb-4">Ilustraciones personalizadas para proyectos editoriales, publicitarios o decorativos. Estilo único y adaptado a tus necesidades.</p>
+                    <a href="#" class="text-blue-700 font-medium hover:text-blue-900"
+                       hx-get="/servicio/ilustracion"
+                       hx-target="#servicios-content"
+                       hx-trigger="click"
+                       hx-swap="innerHTML"
+                       hx-indicator="#loading-indicator">Ver más detalles →</a>
+                </div>
+            </div>
+            
+            <!-- Servicio 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img th:src="@{/img/fotografia1.jpg}" alt="Fotografía" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-blue-900">Fotografía Profesional</h3>
+                    <p class="text-gray-600 mb-4">Servicios de fotografía para productos, eventos corporativos o campañas publicitarias. Imágenes de alta calidad que destacan tu marca.</p>
+                    <a href="#" class="text-blue-700 font-medium hover:text-blue-900"
+                       hx-get="/servicio/fotografia"
+                       hx-target="#servicios-content"
+                       hx-trigger="click"
+                       hx-swap="innerHTML"
+                       hx-indicator="#loading-indicator">Ver más detalles →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="publicidad-diseno" class="py-6">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Publicidad y Diseño</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Servicio 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img th:src="@{/img/corporea1.jpg}" alt="Letras Corpóreas" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-blue-900">Letras Corpóreas</h3>
+                    <p class="text-gray-600 mb-4">Creamos letras tridimensionales para destacar tu marca en cualquier espacio. Disponibles en diversos materiales y acabados.</p>
+                    <a href="#" class="text-blue-700 font-medium hover:text-blue-900"
+                       hx-get="/servicio/letras-corporeas"
+                       hx-target="#servicios-content"
+                       hx-trigger="click"
+                       hx-swap="innerHTML"
+                       hx-indicator="#loading-indicator">Ver más detalles →</a>
+                </div>
+            </div>
+            
+            <!-- Servicio 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img th:src="@{/img/vinilos.jpg}" alt="Vinilos Impresos" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-blue-900">Vinilos Impresos</h3>
+                    <p class="text-gray-600 mb-4">Impresión de alta calidad en vinilos para decoración, señalización o publicidad. Resistentes y duraderos.</p>
+                    <a href="#" class="text-blue-700 font-medium hover:text-blue-900"
+                       hx-get="/servicio/vinilos-impresos"
+                       hx-target="#servicios-content"
+                       hx-trigger="click"
+                       hx-swap="innerHTML"
+                       hx-indicator="#loading-indicator">Ver más detalles →</a>
+                </div>
+            </div>
+            
+            <!-- Servicio 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img th:src="@{/img/murales.jpg}" alt="Murales" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-blue-900">Murales y Pinturas</h3>
+                    <p class="text-gray-600 mb-4">Transformamos espacios con murales artísticos y pinturas personalizadas. Ideal para interiores y exteriores.</p>
+                    <a href="#" class="text-blue-700 font-medium hover:text-blue-900"
+                       hx-get="/servicio/murales-pinturas"
+                       hx-target="#servicios-content"
+                       hx-trigger="click"
+                       hx-swap="innerHTML"
+                       hx-indicator="#loading-indicator">Ver más detalles →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

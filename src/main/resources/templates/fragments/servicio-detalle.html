@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="servicio-detalle(id, nombre, descripcion, caracteristicas, imagenes)" class="py-6">
+        <div class="container mx-auto px-4">
+            <!-- Botón de regreso con HTMX -->
+            <button 
+                class="mb-6 flex items-center text-blue-700 hover:text-blue-900 transition-colors"
+                hx-get="/publicidad-diseno"
+                hx-target="#servicios-content"
+                hx-trigger="click"
+                hx-swap="innerHTML"
+                hx-indicator="#loading-indicator"
+                th:attr="hx-get=${'/publicidad-diseno'}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Volver a servicios
+            </button>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Galería de imágenes -->
+                <div class="relative h-96 bg-gray-100">
+                    <!-- Simple image display instead of Swiper since we're not using JS -->
+                    <div class="h-full">
+                        <img th:if="${!#lists.isEmpty(imagenes)}" th:src="@{${imagenes[0]}}" th:alt="${nombre}" class="w-full h-full object-cover">
+                        <div th:if="${#lists.isEmpty(imagenes)}" class="flex items-center justify-center h-full bg-gray-200">
+                            <span class="text-gray-500">No hay imágenes disponibles</span>
+                        </div>
+                    </div>
+                    <!-- Miniaturas de imágenes adicionales -->
+                    <div th:if="${#lists.size(imagenes) > 1}" class="absolute bottom-4 left-0 right-0 flex justify-center gap-2 px-4">
+                        <div th:each="imagen, iterStat : ${imagenes}" th:if="${iterStat.index < 4}" class="w-16 h-16 rounded overflow-hidden border-2" th:classappend="${iterStat.index == 0 ? 'border-blue-500' : 'border-white'}">
+                            <img th:src="@{${imagen}}" th:alt="'Miniatura ' + ${iterStat.count}" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Información del servicio -->
+                <div class="p-8">
+                    <h1 class="text-3xl font-bold text-blue-900 mb-4" th:text="${nombre}">Nombre del Servicio</h1>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Publicidad</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Diseño</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Personalizado</span>
+                    </div>
+                    
+                    <div class="prose max-w-none mb-8">
+                        <p class="text-gray-700 text-lg" th:text="${descripcion}">Descripción detallada del servicio...</p>
+                    </div>
+                    
+                    <!-- Características del servicio -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-blue-900 mb-4">Características</h2>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <li th:each="caracteristica : ${caracteristicas}" class="flex items-start mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-gray-700 break-words" th:text="${caracteristica}">Característica del servicio</span>
+                            </li>
+                        </ul>
+                        <!-- Mostrar todas las características en una lista si hay más de 6 -->
+                        <div th:if="${#lists.size(caracteristicas) > 6}" class="mt-4">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2">Todas las características:</h3>
+                            <ul class="list-disc pl-6 space-y-2">
+                                <li th:each="caracteristica : ${caracteristicas}" class="text-gray-700" th:text="${caracteristica}">Característica</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulario de contacto rápido -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h2 class="text-2xl font-bold text-blue-900 mb-4">¿Interesado en este servicio?</h2>
+                        <p class="mb-4 text-gray-700">Completa el formulario y nos pondremos en contacto contigo a la brevedad.</p>
+                                                   <div>
+                                <label for="telefono" class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            
+                            <div class="md:col-span-2">
+                                <label for="mensaje" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            </div>
+                            
+                            <div class="md:col-span-2 flex items-center">
+                                <button type="submit" class="w-full md:w-auto px-6 py-3 bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300">
+                                    Solicitar información
+                                </button>
+                                <div class="htmx-indicator ml-4 flex items-center">
+                                    <div class="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-blue-700 mr-2"></div>
+                                    <span>Enviando...</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

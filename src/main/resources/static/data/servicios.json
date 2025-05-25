@@ -1,0 +1,114 @@
+{
+  "servicios": {
+    "letras-corporeas": {
+      "id": "letras-corporeas",
+      "nombre": "Letras Corpóreas",
+      "descripcion": "Nuestras letras corpóreas son la solución perfecta para destacar tu marca o mensaje en cualquier espacio. Fabricadas con materiales de alta calidad, estas letras tridimensionales ofrecen un impacto visual único que capta la atención de forma inmediata. Ideales para fachadas de negocios, recepciones, eventos corporativos o cualquier espacio que requiera un toque distintivo.",
+      "caracteristicas": [
+        "Fabricación en diversos materiales: PVC, acrílico, metal, madera",
+        "Acabados personalizados: pintado, iluminación LED, retroiluminación",
+        "Tamaños y grosores adaptables a cada necesidad",
+        "Resistentes a condiciones exteriores",
+        "Instalación profesional incluida",
+        "Diseño personalizado según tu identidad corporativa"
+      ],
+      "imagenes": [
+        "/img/corporea1.jpg",
+        "/img/corporea1.jpg",
+        "/img/corporea1.jpg"
+      ]
+    },
+    "vinilos-impresos": {
+      "id": "vinilos-impresos",
+      "nombre": "Vinilos Impresos",
+      "descripcion": "Los vinilos impresos son una solución versátil y económica para transformar cualquier superficie. Con tecnología de impresión de alta resolución, creamos vinilos personalizados que se adaptan a tus necesidades específicas. Perfectos para decoración, señalización, publicidad en vehículos o escaparates, nuestros vinilos combinan calidad visual con durabilidad excepcional.",
+      "caracteristicas": [
+        "Impresión digital de alta resolución",
+        "Vinilos de corta, media o larga duración",
+        "Aplicación profesional garantizada",
+        "Diseños personalizados",
+        "Resistentes a la intemperie",
+        "Fácil mantenimiento y limpieza"
+      ],
+      "imagenes": [
+        "/img/fotografia1.jpg"
+      ]
+    },
+    "murales-pinturas": {
+      "id": "murales-pinturas",
+      "nombre": "Murales y Pinturas",
+      "descripcion": "Transformamos espacios a través del arte y el color. Nuestros murales y pinturas personalizadas crean ambientes únicos que reflejan la identidad de tu marca o el carácter de tu espacio. Trabajamos con artistas profesionales que combinan técnicas tradicionales y contemporáneas para crear obras impactantes en interiores y exteriores.",
+      "caracteristicas": [
+        "Diseños exclusivos adaptados a tu espacio y necesidades",
+        "Técnicas variadas: acrílico, aerosol, técnicas mixtas",
+        "Pinturas ecológicas y de alta durabilidad",
+        "Posibilidad de efectos especiales y texturas",
+        "Adecuado para interiores y exteriores",
+        "Mantenimiento y restauración disponibles"
+      ],
+      "imagenes": [
+        "/img/murales-1.jpg",
+        "/img/murales-2.jpg",
+        "/img/murales-3.jpg"
+      ]
+    },
+
+    "diseno-grafico": {
+      "id": "diseno-grafico",
+      "nombre": "Diseño Gráfico",
+      "descripcion": "Diseño gráfico profesional para tu marca",
+      "caracteristicas": [
+        "Diseño de identidad corporativa y branding",
+        "Creación de material promocional y publicitario",
+        "Diseño editorial para publicaciones impresas y digitales",
+        "Packaging y etiquetado de productos",
+        "Diseño de redes sociales",
+        "Presentaciones corporativas"
+      ],
+      "imagenes": [
+        "/img/design1.jpg",
+        "/img/design2.jpg",
+        "/img/design3.jpg"
+      ]
+    },
+    "ilustracion": {
+      "id": "ilustracion",
+      "nombre": "Ilustración",
+      "descripcion": "Ilustraciones personalizadas para tu proyecto",
+      "caracteristicas": [
+        "Ilustración digital y tradicional",
+        "Adaptación a diferentes estilos y tendencias",
+        "Creación de personajes y mascotas corporativas",
+        "Ilustraciones para publicaciones",
+        "Infografías y visualización de datos",
+        "Storyboards y concept art"
+      ],
+      "imagenes": [
+        "/img/illust1.jpg",
+        "/img/illust2.jpg",
+        "/img/illust3.jpg"
+      ]
+    },
+    "carteleria": {
+      "id": "carteleria",
+      "nombre": "Cartelería Profesional",
+      "descripcion": "Especializados en la creación e instalación de carteles de alto impacto visual. Desde lonas impresas de gran formato hasta señalética corporativa, ofrecemos soluciones completas que incluyen diseño, producción e instalación. Nuestro compromiso es brindar presupuestos inmediatos y un servicio integral que garantiza la máxima calidad y durabilidad en cada proyecto.",
+      "caracteristicas": [
+        "Carteles en lona impresa de alta resolución y durabilidad",
+        "Diseño personalizado y preparación de archivos para impresión",
+        "Instalación profesional en cualquier superficie o altura",
+        "Presupuestos inmediatos y asesoramiento técnico",
+        "Señalética corporativa y comercial a medida",
+        "Mantenimiento y servicio post-instalación garantizado",
+        "Soluciones para interiores y exteriores",
+        "Materiales de primera calidad con garantía"
+      ],
+      "imagenes": [
+        "/img/cartel1.jpg",
+        "/img/cartel2.jpg",
+        "/img/cartel3.jpg"
+      ]
+    }
+  }
+
+}

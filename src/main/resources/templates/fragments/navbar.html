@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav th:fragment="navbar" class="text-white shadow-md" style="background-color: rgb(25, 40, 85);">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-3">
+                <div class="flex items-center space-x-4">
+                    <a th:href="@{/}" class="flex items-center text-xl font-bold">
+                        <img th:src="@{/img/logo.png}" alt="La Oficina Cartelera Logo" class="h-8 mr-2"/> 
+                        <span>LA OFICINA Cartelera</span>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex space-x-6">
+                    <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Función para manejar la apertura/cierre de los menús desplegables
+                        function setupDropdownMenu(buttonId, menuId) {
+                            const button = document.getElementById(buttonId);
+                            const menu = document.getElementById(menuId);
+                            let isOpen = false;
+                            
+                            if (!button || !menu) return;
+                            
+                            // Mostrar menú al hacer hover en el botón
+                            button.addEventListener('mouseenter', function() {
+                                menu.classList.add('menu-visible');
+                                isOpen = true;
+                            });
+                            
+                            // Mantener menú abierto cuando el cursor entra al menú
+                            menu.addEventListener('mouseenter', function() {
+                                menu.classList.add('menu-visible');
+                                isOpen = true;
+                            });
+                            
+                            // Función para cerrar el menú con un pequeño retraso
+                            const closeMenu = function() {
+                                setTimeout(function() {
+                                    if (!isOpen) {
+                                        menu.classList.remove('menu-visible');
+                                    }
+                                }, 100); // Pequeño retraso para evitar cierres accidentales
+                            };
+                            
+                            // Cerrar menú cuando el cursor sale del botón
+                            button.addEventListener('mouseleave', function() {
+                                isOpen = false;
+                                closeMenu();
+                            });
+                            
+                            // Cerrar menú cuando el cursor sale del menú
+                            menu.addEventListener('mouseleave', function() {
+                                isOpen = false;
+                                closeMenu();
+                            });
+                        }
+                        
+                        // Configurar cada menú desplegable
+                        setupDropdownMenu('carteleria-btn', 'carteleria-menu');
+                        setupDropdownMenu('diseno-btn', 'diseno-menu');
+                        setupDropdownMenu('creatividad-btn', 'creatividad-menu');
+                    });
+                    </script>
+                    <div class="relative group">
+    <button id="carteleria-btn" class="py-2 text-white hover:text-gray-200 font-semibold focus:outline-none flex items-center">
+        Cartelería
+        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div id="carteleria-menu" class="absolute left-0 mt-2 w-56 bg-white text-gray-900 rounded shadow-lg opacity-0 transition-opacity duration-200 z-50 invisible">
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cartelería en lona</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cartelería en madera</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Vinilos</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Letras corpóreas</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Banner</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Luminosos</a>
+    </div>
+</div>
+
+                    <div class="relative group">
+                        <button id="diseno-btn" class="py-2 text-white hover:text-gray-200 font-semibold focus:outline-none flex items-center">
+                            Diseño
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="diseno-menu" class="absolute left-0 mt-2 w-56 bg-white text-gray-900 rounded shadow-lg opacity-0 transition-opacity duration-200 z-50 invisible">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Diseño gráfico</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Ilustraciones</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Diseño de logos</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Identidad visual</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Páginas web</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Consultoría</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button id="creatividad-btn" class="py-2 text-white hover:text-gray-200 font-semibold focus:outline-none flex items-center">
+                            Creatividad
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="creatividad-menu" class="absolute left-0 mt-2 w-56 bg-white text-gray-900 rounded shadow-lg opacity-0 transition-opacity duration-200 z-50 invisible">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Muralismo</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Barcos</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Pinturas</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tallados en madera</a>
+                        </div>
+                    </div>
+                    <a href="#" class="py-2 text-white hover:text-gray-200">Portafolio</a>
+                    <a href="#" class="py-2 text-white hover:text-gray-200">Contacto</a>
+                </div>
+            </div>
+            
+            <!-- Mobile menu, show/hide based on menu state -->
+            <div id="mobile-menu" class="md:hidden hidden py-2">
+                <div class="relative">
+    <button onclick="document.getElementById('submenu-mobile').classList.toggle('hidden')" class="block w-full text-left py-2 text-white hover:text-gray-200 font-semibold focus:outline-none flex items-center">
+        Cartelería
+        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </button>
+    <div id="submenu-mobile" class="hidden bg-white text-gray-900 rounded shadow-lg mt-1 z-50">
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cartelería en lona</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cartelería en madera</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Vinilos</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Letras corpóreas</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Banner</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Luminosos</a>
+        <div class="border-t my-2"></div>
+        <span class="block px-4 py-2 text-gray-500 font-semibold">Diseño</span>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Diseño gráfico</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Ilustraciones</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Diseño de logos</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Identidad visual</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Páginas web</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Consultoría</a>
+    </div>
+</div>
+
+                <div class="border-t my-2"></div>
+                <span class="block px-4 py-2 text-gray-500 font-semibold">Creatividad</span>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Muralismo</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Barcos</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Pinturas</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Tallados en madera</a>
+                <a href="#" class="block py-2 text-white hover:text-gray-200">Portafolio</a>
+                <a href="#" class="block py-2 text-white hover:text-gray-200">Contacto</a>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
