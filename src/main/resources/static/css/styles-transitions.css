@@ -1,0 +1,72 @@
+/* Transiciones para elementos generales */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* Transiciones para elementos que entran por scroll */
+.slide-up {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.slide-up.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Transiciones para cambios de página */
+.page-transition {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-exit {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active, .page-exit-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Transiciones para hover en elementos interactivos */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Transiciones para elementos que aparecen con delay */
+.stagger-fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.stagger-fade.visible:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.stagger-fade.visible:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.stagger-fade.visible:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.stagger-fade.visible {
+  opacity: 1;
+}
